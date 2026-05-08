@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Exam</title>
+
+  <!-- ICON -->
+  <link rel="icon" type="jpg" href="https://i.pinimg.com/736x/f5/31/60/f5316036e5a4cbee625e22061228cb9e.jpg">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"rel="stylesheet"
+  />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+  <style>
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    :root{
+      --main-color: #8B5CF6;
+      --glow-color: #A855F7;
+      --dark-bg: #050B12;
+      --card-bg: #111827;
+      --soft-purple: #1E1B2E;
+    }
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+       background: var(--dark-bg);
+       color: #fff;
+    }
+
+    /* HEADER */
+    header{
+       width:100%;
+       padding:22px 7%;
+       display:flex;
+       justify-content:space-between;
+       align-items:center;
+       position:relative;
+    }
+
+    /* NAVIGATION */
+    nav{
+       display:flex;
+       align-items:center;
+       gap:18px;
+       background:rgba(255,255,255,0.04);
+       border:1px solid rgba(255,255,255,0.06);
+       padding:10px 15px;
+       border-radius:50px;
+       backdrop-filter:blur(10px);
+       transition: 0.3s;
+    }
+
+    /* LINKS */
+    nav a{
+       text-decoration:none;
+       color:#cfcfcf;
+       font-size:15px;
+       padding:10px 18px;
+       border-radius:30px;
+       transition:.4s;
+       position:relative;
+    }
+
+    /* ACTIVE / HOVER */
+    nav a:hover{
+       color: var(--main-color);
+
+       box-shadow:
+       0 0 10px var(--main-color),
+       0 0 20px var(--main-color);
+    }
+
+    /* CTA BUTTON */
+    .hire-btn{
+       background:white;
+       color:#111 !important;
+       font-weight:700;
+    }
+
+    .hire-btn:hover{
+       background:#ff0066;
+       color:white !important;
+    }
+
+    /* MOBILE */
+    @media(max-width:768px){
+
+    header{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav{
+        gap:20px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+    }
+
+    /* HOME */
+    .hero {
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 15%;
+    }
+
+    .hero-text h2 {
+      font-size: 50px;
+    }
+
+    .hero-text h5 {
+      margin: 15px 0;
+      color: #aaa;
+    }
+
+    .hero-text span1 {
+      color: #ff3b3b;
+
+      text-shadow:
+      0 0 5px #ff0000,
+      0 0 15px #ff0000,
+      0 0 30px #ff1a1a,
+      0 0 50px #ff4d4d;
+    }
+
+    .btn:hover {
+      background: #555;
+    }
+
+    .hero img {
+      width: 700px;
+      border-radius: 300px;
+    }
+
+    section {
+      padding: 80px 10%;
+    }
+
+    /* ABOUT ME */
+    .about-section{
+      padding:80px 0;
+    }
+
+    .section-about h1{
+      font-size:42px;
+      font-weight:700;
+      color:#1e293b;
+      letter-spacing:2px;
+    }
+
+    .title-line{
+      width:80px;
+      height:4px;
+      margin:15px auto 25px;
+      border-radius:5px;
+      background: var(--main-color);
+
+      box-shadow:
+      0 0 10px var(--main-color),
+      0 0 20px var(--glow-color);
+    }
+
+    .section-about p{
+      max-width:850px;
+      margin:auto;
+      color:#555;
+      line-height:1.8;
+      font-size:17px;
+    }
+
+    .about-img img{
+      width:100%;
+      border-radius:20px;
+      object-fit:cover;
+      box-shadow:
+      0 0 30px rgba(139,92,246,0.6);
+      max-width:450px;
+      object-fit:contain;
+
+      transition: 0.4s ease;
+
+      filter:
+      drop-shadow(0 0 0px transparent);
+    }
+
+    .about-img img:hover{
+
+      transform: scale(1.03);
+
+      filter:
+      drop-shadow(0 0 5px #8B5CF6)
+      drop-shadow(0 0 25px #A855F7)
+    }
+
+    .about-content h2{
+      font-size:38px;
+      font-weight:700;
+    }
+
+    .about-content .lead{
+      color:#555;
+      line-height:1.8;
+      font-size:18px;
+    }
+
+    .info-card{
+      border-radius:15px;
+      padding:18px 20px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.06);
+      background: #1a1625;
+      border-radius:15px;
+      padding:18px 20px;
+      border: 1px solid rgba(139,92,246,0.15);
+
+      box-shadow:
+      0 0 10px rgba(139,92,246,0.08);
+
+      height:100%;
+      transition:0.3s;
+    }
+
+    .info-card:hover{
+      transform:translateY(-5px);
+
+      box-shadow:
+      0 0 15px rgba(139,92,246,0.4),
+      0 0 35px rgba(168,85,247,0.2);
+    }
+
+    .info-card i{
+      font-size:22px;
+      margin-bottom:10px;
+      color: var(--main-color);
+
+      text-shadow:
+      0 0 10px var(--main-color);
+    }
+
+    .info-card h5{
+      font-size:17px;
+      font-weight:600;
+      margin-bottom:6px;
+    }
+
+    .info-card p{
+      margin:0;
+      color:#666;
+      font-size:15px;
+    }
+
+    .description{
+      margin-top:30px;
+      line-height:1.9;
+      color:#444;
+    }
+
+    @media(max-width:768px){
+      .about-content h2{
+        font-size:30px;
+      }
+
+      .section-about h1{
+        font-size:34px;
+      }
+    }
+
+    /* PROJECTS */
+    .projects-section{
+      padding:80px 0;
+    }
+
+    .section-project{
+      margin-bottom:50px;
+    }
+
+    .section-project h1{
+      font-size:48px;
+      font-weight:700;
+      color:#ffffff;
+    }
+
+    .section-project p{
+      color:#9ca3af;
+      max-width:700px;
+      margin-top:10px;
+      line-height:1.8;
+    }
+
+    .project-card{
+      border-radius:22px;
+      overflow:hidden;
+      transition:0.5s;
+      height:100%;
+      background:#111827;
+      border:1px solid rgba(139,92,246,0.12);
+    }
+
+    .project-card:hover{
+      transform:translateY(-10px);
+
+      box-shadow:
+      0 0 20px rgba(139,92,246,0.35),
+      0 0 40px rgba(168,85,247,0.2);
+    }
+
+    .project-image{
+      overflow:hidden;
+    }
+
+    .project-image img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+      transition:0.4s;
+    }
+
+    .project-card:hover img{
+      transform:scale(1.05);
+    }
+
+    .project-content{
+      padding:25px;
+    }
+
+    .project-content h3{
+      font-size:28px;
+      font-weight:700;
+      margin-bottom:12px;
+      color:#fff;
+    }
+
+    .project-content p{
+      color:#b0b7c3;
+      line-height:1.7;
+      margin-bottom:20px;
+    }
+
+    .tools{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:20px;
+    }
+
+    .tool-badge{
+      color:#58a6ff;
+      padding:8px 14px;
+      border-radius:50px;
+      font-size:14px;
+      background:#1E1B2E;
+      color: var(--main-color);
+
+      box-shadow:
+      0 0 10px rgba(139,92,246,0.2);
+    }
+
+    .project-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:12px 22px;
+      color:white;
+      border-radius:10px;
+      text-decoration:none;
+      transition:0.3s;
+      font-weight:600;
+      background: linear-gradient(90deg, #8B5CF6, #A855F7);
+      box-shadow:
+      0 0 15px rgba(139,92,246,0.4);
+    }
+
+    .project-btn:hover{
+      color:white;
+
+      box-shadow:
+      0 0 20px rgba(139,92,246,0.7),
+      0 0 40px rgba(168,85,247,0.4);
+
+     transform:translateY(-3px);
+    }
+
+    @media(max-width:768px){
+
+      .section-title h1{
+        font-size:38px;
+      }
+
+      .project-content h3{
+        font-size:24px;
+      }
+
+    }
+
+    /* CONTACT */
+    .contact-section{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:80px 15px;
+    }
+
+    .contact-box{
+      border-radius:25px;
+      padding:50px;
+      width:100%;
+      max-width:700px;
+      background:#0f172a;
+      border:1px solid rgba(139,92,246,0.15);
+
+      box-shadow:
+      0 0 20px rgba(139,92,246,0.35),
+      0 0 40px rgba(168,85,247,0.2);
+    }
+
+    .contact-title{
+      text-align:center;
+      margin-bottom:40px;
+    }
+
+    .contact-title h1{
+      font-size:50px;
+      font-weight:700;
+      margin-bottom:10px;
+    }
+
+    .contact-title p{
+      color:#9ca3af;
+      font-size:17px;
+    }
+
+    .form-control{
+      background:#1f2937;
+      border:none;
+      color:white;
+      padding:15px;
+      border-radius:12px;
+      margin-bottom:20px;
+    }
+
+    .form-control:focus{
+      background:#1f2937;
+      color:white;
+      box-shadow:none;
+      border:1px solid #06b6d4;
+    }
+
+    .form-control::placeholder{
+      color:#9ca3af;
+    }
+
+    textarea{
+      resize:none;
+    }
+
+    .send-btn{
+      width:100%;
+      border:none;
+      padding:15px;
+      color:white;
+      font-size:18px;
+      font-weight:600;
+      border-radius:12px;
+      transition:0.3s;
+      background: linear-gradient(90deg, #8B5CF6, #A855F7);
+      box-shadow:
+      0 0 15px rgba(139,92,246,0.4);
+    }
+
+    .send-btn:hover{
+      color:white;
+
+      box-shadow:
+      0 0 20px rgba(139,92,246,0.7),
+      0 0 40px rgba(168,85,247,0.4);
+
+      transform:translateY(-3px);
+    }
+
+    .contact-info{
+      text-align:center;
+      margin-top:40px;
+    }
+
+    .contact-info p{
+      color:#d1d5db;
+      margin-bottom:20px;
+      font-size:17px;
+    }
+
+    .social-icons a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:45px;
+      height:45px;
+      border-radius:50%;
+      background:#1f2937;
+      color:white;
+      margin:0 8px;
+      font-size:18px;
+      transition:0.3s;
+      text-decoration:none;
+    }
+
+    .social-icons a:hover{
+      transform:translateY(-5px);
+      background: var(--main-color);
+
+      box-shadow:
+      0 0 15px var(--main-color),
+      0 0 30px var(--glow-color);
+
+      transform:translateY(-5px);
+    }
+
+    @media(max-width:768px){
+
+    .contact-box{
+        padding:35px 25px;
+        background:#0f172a;
+
+        border:1px solid rgba(139,92,246,0.15);
+
+        box-shadow:
+        0 0 25px rgba(139,92,246,0.15);
+      }
+
+    .contact-title h1{
+        font-size:38px;
+      }
+
+    }
+
+    /* SCROLL TO TOP BUTTON */
+    /* Button */
+    #topBtn{
+       position:fixed;
+       bottom:20px;
+       right:20px;
+
+       width:50px;
+       height:50px;
+
+       border:none;
+       border-radius:50%;
+
+       background:#8b5cf6;
+       color:#fff;
+
+       font-size:28px;
+       cursor:pointer;
+
+       display:none;
+
+       box-shadow:0 4px 10px rgba(0,0,0,0.2);
+       transition:.3s ease;
+    }
+
+    #topBtn:hover{
+       background:#7c3aed;
+       transform:translateY(-5px) scale(1.08);
+    }
+
+    /* SMOOTH SCROLL */
+    html{
+       scroll-behavior:smooth;
+    }
+
+    /* FOOTER */
+    footer {
+       text-align: center;
+       padding: 20px;
+       background: #111;
+       color: #777;
+    }
+
+    @media(max-width: 768px) {
+    .hero {
+       flex-direction: column;
+       text-align: center;
+      }
+
+    .hero img {
+       margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+<!-- TOP OF PAGE -->
+<div id="top"></div>
+<header>
+  <h1>PORTFOLIO</h1>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+<!--Home-->
+<section class="hero">
+  <div class="hero-text">
+    <h2><b>Christian Candela</b></h2>
+     <h5><b>I'm a student from <span1><b>G R C</b></span1></b></h5>
+  </div>
+  <img src="mypicture.png" alt="Profile">
+</section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<section id="about" class="about-section">
+    <div class="container">
+      <!-- Content -->
+      <div class="row align-items-center g-5">
+
+        <!-- Image -->
+        <div class="col-lg-5">
+          <div class="about-img">
+            <img src="myformalpicture.png" alt="Profile Image">
+          </div>
+        </div>
+
+        <!-- About Content -->
+        <div class="col-lg-7">
+          <div class="about-content">
+
+            <center><h2 class="mb-3">About Me</h2></center>
+            <div class="title-line"></div>
+
+            <p class="lead mb-4">
+              I am Christian Candela, 19 years old and i currently living in caloocan city. I am
+              a friendly, hardworking, and simple person who values honesty, responsibility,
+              and continuously learning new things and improving myself. I am always willing to learn from others. 
+              I believe that challenges in life are opportunities to improve self and become a better person.
+            </p>
+
+            <!-- Info Cards -->
+            <div class="row g-4">
+
+              <div class="col-md-6">
+                <div class="info-card">
+                  <i class="bi bi-person-fill"></i>
+                  <h5>Full Name</h5>
+                  <p>Christian Manimbao Candela</p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="info-card">
+                  <i class="bi bi-calendar-event-fill"></i>
+                  <h5>Age</h5>
+                  <p>19 Years Old</p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="info-card">
+                  <i class="bi bi-caret-right-fill"></i>
+                  <h5>Birthday</h5>
+                  <p>May 16, 2006</p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="info-card">
+                  <i class="bi bi-code-slash"></i>
+                  <h5>Skills</h5>
+                  <p>HTML, CSS, Bootstrap, 
+                    Graphic Design, Csharp, NC2 Css</p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="info-card">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <h5>Location</h5>
+                  <p>Caloocan, Metro Manila, Philippines</p>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="info-card">
+                  <i class="bi bi-caret-right-fill"></i>
+                  <h5>Undergraduate</h5>
+                  <p>BSIT - 1 year</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--Projects-->
+<section id="projects" class="projects-section">
+    <div class="container">
+      <!-- Title -->
+      <div class="section-project">
+        <h1>Projects</h1>
+      </div>
+      <!-- Project Cards -->
+      <div class="row g-4">
+        <!-- Project 1 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="calendar.PNG" alt="Project Image">
+            </div>
+            <div class="project-content">
+              <h3>Calendar 2026</h3>
+              <p>
+                A clean and responsive calendar website design made for organizing
+                schedules and upcoming events.
+              </p>
+              <div class="tools">
+                <span class="tool-badge">HTML</span>
+                <span class="tool-badge">CSS</span>
+                <span class="tool-badge">Bootstrap</span>
+              </div>
+              <a href="https://krxstian.github.io/2026CALENDAR/" target="_blank" class="project-btn">
+                View Project
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="localidad.PNG" alt="Project Image">
+            </div>
+            <div class="project-content">
+              <h3>Inspired Local Shop</h3>
+              <p>
+                Reminder: This is for entertainment purposes only.
+                 Also, it is just not an official shop.
+              </p>
+              <div class="tools">
+                <span class="tool-badge">HTML</span>
+                <span class="tool-badge">CSS</span>
+                <span class="tool-badge">JavaScript</span>
+              </div>
+              <a href="https://krxstian.github.io/Localidad/" target="_blank" class="project-btn">
+                View Project
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="fruits.PNG" alt="Project Image">
+            </div>
+            <div class="project-content">
+              <h3>Fruit Alphabetical</h3>
+              <p>
+                A colorful responsive webpage featuring different fruit categories
+                and simple navigation sections.
+              </p>
+              <div class="tools">
+                <span class="tool-badge">HTML</span>
+                <span class="tool-badge">CSS</span>
+              </div>
+              <a href="https://krxstian.github.io/FruitAlphabetical/" target="_blank" class="project-btn">
+                View Project
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+    <div class="contact-box">
+      <!-- Title -->
+      <div class="contact-title">
+        <h1>Contact Me</h1>
+        <p>
+          Have a message for me? Send me a message below.
+        </p>
+      </div>
+      <!-- FORM -->
+      <form onsubmit="submit()" action="https://formsubmit.co/Christiancandela916@gmail.com" method="POST">
+        <!-- Disable Captcha -->
+        <input type="hidden" name="_captcha" value="false">
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          placeholder="Your Name"
+          required
+        >
+        <input
+          type="email"
+          name="email"
+          class="form-control"
+          placeholder="Your Email"
+          required
+        >
+
+        <textarea
+          name="message"
+          rows="6"
+          class="form-control"
+          placeholder="Write your message..."
+          required
+        ></textarea>
+        <button type="submit" class="send-btn">
+          Send Message
+        </button>
+      </form>
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <p>
+          <i class="bi bi-envelope-fill"></i>
+          Christiancandela916@gmail.com
+        </p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/frmdaabbeyroad" target="_blank">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com/_krxstian/" target="_blank">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://github.com/krxstian" target="_blank">
+            <i class="bi bi-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+<!--Footer-->
+<footer>
+  <p>© 2026 Christian Candela Portfolio</p>
+</footer>
+  <button id="topBtn">↑</button>
+
+  <script>
+  let topBtn = document.getElementById("topBtn");
+
+      window.onscroll = function () {
+
+      if (
+      document.body.scrollTop > 100 ||
+      document.documentElement.scrollTop > 100
+      ) {
+      topBtn.style.display = "block";
+      } else {
+      topBtn.style.display = "none";
+      }
+    };
+
+      topBtn.onclick = function () {
+      window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+      });
+    };
+
+    funtion submit (e) {
+      e.preventDefault();
+    }
+  </script>
+</body>
+</html>
