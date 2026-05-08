@@ -838,8 +838,7 @@
         </p>
       </div>
       <!-- FORM -->
-      <!-- Replace YOUR_EMAIL@gmail.com with your Gmail -->
-      <form action="https://formsubmit.co/Christiancandela916@gmail.com" method="POST">
+      <form onsubmit="submit()" action="https://formsubmit.co/Christiancandela916@gmail.com" method="POST">
         <!-- Disable Captcha -->
         <input type="hidden" name="_captcha" value="false">
         <!-- Success Message -->
@@ -921,6 +920,10 @@
       behavior: "smooth"
       });
     };
+    ---------
+    funtion submit (e) {
+      e.preventDefault();
+    }
   </script>
 </body>
 </html>
